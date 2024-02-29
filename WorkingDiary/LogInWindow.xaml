@@ -1,0 +1,16 @@
+﻿<Window x:Class="WorkingDiary.LogInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkingDiary"
+        mc:Ignorable="d"
+        Title="Вход в аккаунт" Height="350" Width="300">
+    <Grid>
+        <Button Width="100" Height="20" Name="LogInButton" Content="Вход" Click="LogInButton_Click" Margin="0,250,0,30"></Button>
+        <TextBox Width="200" Height="30" Name="LogInTextBox" Margin="0,50,0,220" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
+        <TextBox Width="200" Height="30" Name="PasswordTextBox" Margin="0,120,0,150" BorderBrush="Black" BorderThickness="2" FontSize="20"></TextBox>
+        <Label Width="55" Height="30" Content="Логин" Margin="10,10,165,220"></Label>
+        <Label Width="55" Height="30" Content="Пароль" Margin="10,100,165,170"></Label>
+    </Grid>
+</Window>

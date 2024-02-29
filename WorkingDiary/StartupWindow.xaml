@@ -1,0 +1,14 @@
+﻿<Window x:Class="WorkingDiary.StartupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkingDiary"
+        mc:Ignorable="d"
+        Title="Приложение" Height="450" Width="600">
+    <Grid>
+        <Button x:Name="EnterButton" Width="120" Height="25" Content="Войти" Margin="0,100,0,200" Click="EnterButton_Click"></Button>
+        <Button x:Name="RegButton" Width="120" Height="25" Content="Зарегестрироваться" Margin="0,200,0,100" Click="RegButton_Click"></Button>
+        <Button x:Name="InfoButton" Width="120" Height="25" Content="Информация с БД" Margin="0,300,0,80" Click="InfoButton_Click"></Button>
+    </Grid>
+</Window>

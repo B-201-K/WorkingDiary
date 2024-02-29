@@ -1,0 +1,19 @@
+﻿<Window x:Class="WorkingDiary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkingDiary"
+        mc:Ignorable="d"
+        Height="500" Width="1000">
+    <Grid>
+
+        <Label Name="UsernameLabel" Content="Username" Height="30" Width="150" Margin="20 10 830 410"></Label>
+        <Button x:Name="ExitButton" Content="Выход" Height="30" Width="100" Margin="890,444,10,10" Click="ExitButton_Click" ></Button>
+        <Button x:Name="AddTaskButton" Content="Добавить задачу" Height="30" Width="100" Margin="480,305,380,119" Click="ExitButton_Click" ></Button>
+        <Button x:Name="DeleteTaskButton" Content="Удалить задачу" Height="30" Width="100" Margin="617,305,283,119" Click="ExitButton_Click" ></Button>
+        <Button x:Name="ShowAllTasksButton" Content="Показать все задачи" Height="30" Width="120" Margin="734,305,146,119" Click="ExitButton_Click" ></Button>
+        <Button x:Name="EmployeeChooseButton" Content="Выбрать работника" Height="30" Width="120" Margin="870,305,10,119" Click="ExitButton_Click" Visibility="Visible"></Button>
+        <DataGrid x:Name="DataFromDb" Height="300" Width="500" Margin="500,0,0,184"></DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="WorkingDiary.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkingDiary"
+        mc:Ignorable="d"
+        Title="Окно регистрации пользователя" Height="500" Width="400">
+    <Grid>
+        <Button Width="120" Height="20" Name="RegButton" Content="Зарегистрироваться" Margin="0,420,0,20" Click="RegButton_Click"></Button>
+        <TextBox Width="200" Height="30" Name="NameTextBox" Margin="0,20,0,400" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
+        <TextBox Width="200" Height="30" Name="SurnameTextBox" Margin="0,30,0,300" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
+        <TextBox Width="200" Height="30" Name="LastnameTextBox" Margin="0,35,0,200" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
+        <TextBox Width="200" Height="30" Name="DepartmentTextBox" Margin="0,40,0,100" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
+        <TextBox Width="200" Height="30" Name="LogInTextBox" Margin="0,70,0,20" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
+        <TextBox Width="200" Height="30" Name="PasswordTextBox" Margin="0,220,0,60" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
+        <Label Width="50" Height="30" Margin="40,5,200,430">Имя</Label>
+        <Label Width="60" Height="30" Margin="50,30,200,340">Фамилия</Label>
+        <Label Width="60" Height="30" Margin="50,45,200,250">Отчество</Label>
+        <Label Width="60" Height="30" Margin="50,60,200,160">Отдел</Label>
+        <Label Width="60" Height="30" Margin="50,100,200,90">Логин</Label>
+        <Label Width="60" Height="30" Margin="50,190,200,70">Пароль</Label>
+    </Grid>
+</Window>
