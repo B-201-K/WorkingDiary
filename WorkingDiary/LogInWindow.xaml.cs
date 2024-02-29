@@ -52,9 +52,9 @@ namespace WorkingDiary
         {
             using (WorkersDbContext workersDb = new())
             {
-                if (workersDb.Workers.Where(w => w.WorkerLogin.Equals(login)).FirstOrDefault() != null)
+                if (workersDb.Workers.Any(w => w.WorkerLogin.Equals(login)))
                 {
-                    if (workersDb.Workers.Where(w => w.WorkerPassword.Equals(password)).FirstOrDefault() != null)
+                    if (workersDb.Workers.Any(w => w.WorkerLogin.Equals(login) && w.WorkerPassword.Equals(password)))
                     {
                         int workerId = GetWorkerId(login, password);
                         return workerId;
@@ -68,23 +68,17 @@ namespace WorkingDiary
                         return 0;
                     }
                 }
-                else
+                else 
                 {
-                    MessageBox.Show("Пользователя не существует");
+                    MessageBox.Show("Пользователь не найден");
                     login = null;
                     password = null;
                     PasswordTextBox.Text = null;
+                    LogInTextBox.Text = null;
                     return 0;
                 }
 
-                /*if (workersDb.Workers.Where(w => w.WorkerLogin.Equals(login) && w.WorkerPassword.Equals(password)) != null)
-                {
-                    GetWorkerId(login, password);
-                }
-                else if (workersDb.Workers.Where(w => w.WorkerLogin.Equals(login) && w.WorkerPassword.Equals(password)) == null) 
-                {
-                    
-                }*/
+
             }
         }
         int GetWorkerId(string login, string password)
