@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,15 +25,23 @@ namespace WorkingDiary
             InitializeComponent();
 
         }
+        
 
         private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             LogInWindow logInWindow = new LogInWindow();
-            
-            if (logInWindow.ShowDialog() == true) 
+
+            if (logInWindow.ShowDialog() == true)
             {
+                int id = GetWorkerId(logInWindow.Login, logInWindow.Password);
+
+                logInWindow.Dispose();
+              
                 MainWindow mainWindow = new();
+                mainWindow.CurrentWorker = GetWorker(id);
+                mainWindow.UsernameLabel.Content = mainWindow.CurrentWorker.WorkerName;
+
                 mainWindow.Show();
                 this.Close();
 
@@ -42,7 +51,7 @@ namespace WorkingDiary
         private void RegButton_Click(object sender, RoutedEventArgs e)
         {
             RegistrationWindow registrationWindow = new RegistrationWindow();
-            if (registrationWindow.ShowDialog() == true) 
+            if (registrationWindow.ShowDialog() == true)
             {
                 MessageBox.Show("Регистрация прошла успешно");
                 registrationWindow.Close();
@@ -52,8 +61,20 @@ namespace WorkingDiary
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             InfoWindow infoWindow = new();
-            
+
             infoWindow.Show();
         }
+        int GetWorkerId(string login, string password)
+         {
+             using (WorkersDbContext workersDb = new())
+                 return workersDb.Workers.Where(w => w.WorkerLogin.Equals(login) && w.WorkerPassword.Equals(password)).Select(w => w.WorkerId).FirstOrDefault();
+         }
+        Worker GetWorker(int id)
+         {
+             using (WorkersDbContext workersDb = new())
+             {
+                 return workersDb.Workers.Find(id);
+             }
+         }
     }
 }

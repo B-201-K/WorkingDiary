@@ -31,24 +31,24 @@ namespace WorkingDiary
         {
 
 
-          
-            if (CheckLogPass(Login, Password) > 0)
-            {
-                this.DialogResult = true;
-            }
+
+            CheckLogPass(Login, Password);
 
 
         }
         internal string Login
         {
             get { return LogInTextBox.Text; }
+            set { }
         }
         internal string Password
         {
             get { return PasswordTextBox.Text; }
+            set { }
         }
+       
 
-        int CheckLogPass(string login, string password)
+        void CheckLogPass(string login, string password)
         {
             using (WorkersDbContext workersDb = new())
             {
@@ -56,8 +56,8 @@ namespace WorkingDiary
                 {
                     if (workersDb.Workers.Any(w => w.WorkerLogin.Equals(login) && w.WorkerPassword.Equals(password)))
                     {
-                        int workerId = GetWorkerId(login, password);
-                        return workerId;
+                        this.DialogResult = true;
+                        
                     }
                     else
                     {
@@ -65,7 +65,7 @@ namespace WorkingDiary
                         login = null;
                         password = null;
                         PasswordTextBox.Text = null;
-                        return 0;
+                        
                     }
                 }
                 else 
@@ -75,25 +75,33 @@ namespace WorkingDiary
                     password = null;
                     PasswordTextBox.Text = null;
                     LogInTextBox.Text = null;
-                    return 0;
+                    
                 }
 
 
             }
         }
-        int GetWorkerId(string login, string password)
+        internal void Dispose() 
+        {
+            Login = null;
+            Password = null;
+            
+        }
+        
+        /*int GetWorkerId(string login, string password)
         {
             using (WorkersDbContext workersDbContext = new())
             {
 
-                /*Worker currWork = (from worker in workersDbContext.Workers
+                Worker currWork = (from worker in workersDbContext.Workers
                                    where worker.WorkerLogin.Equals(Login) && worker.WorkerPassword.Equals(Password)
-                                   select worker).ToList().First();*/
+                                   select worker).ToList().First();
                 int currWorkId = workersDbContext.Workers.Where(w => w.WorkerLogin.Equals(login) && w.WorkerPassword.Equals(password)).Select(w => w.WorkerId).FirstOrDefault();
                 return currWorkId;
 
             }
 
-        }
+        }*/
+      
     }
 }

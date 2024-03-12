@@ -20,12 +20,18 @@ namespace WorkingDiary
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Worker CurrentWorker { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             
-           
+            
+            
+
+
         }
+
+        
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
