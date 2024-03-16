@@ -39,5 +39,14 @@ namespace WorkingDiary
             startupWindow.Show();
             this.Close();
         }
+
+        private void ShowAllTasksButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (WorkersDbContext workersDb = new()) 
+            {
+                var info = workersDb.WorkerTasks.Where(t => t.TaskOwnerName.Equals(CurrentWorker.WorkerName)).ToList();
+                DataFromDb.ItemsSource = info;
+            }
+        }
     }
 }

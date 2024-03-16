@@ -12,7 +12,7 @@
         <Button x:Name="ExitButton" Content="Выход" Height="30" Width="100" Margin="890,444,10,10" Click="ExitButton_Click" ></Button>
         <Button x:Name="AddTaskButton" Content="Добавить задачу" Height="30" Width="100" Margin="480,305,380,119" Click="ExitButton_Click" ></Button>
         <Button x:Name="DeleteTaskButton" Content="Удалить задачу" Height="30" Width="100" Margin="617,305,283,119" Click="ExitButton_Click" ></Button>
-        <Button x:Name="ShowAllTasksButton" Content="Показать все задачи" Height="30" Width="120" Margin="734,305,146,119" Click="ExitButton_Click" ></Button>
+        <Button x:Name="ShowAllTasksButton" Content="Показать все задачи" Height="30" Width="120" Margin="734,305,146,119" Click="ShowAllTasksButton_Click" ></Button>
         <Button x:Name="EmployeeChooseButton" Content="Выбрать работника" Height="30" Width="120" Margin="870,305,10,119" Click="ExitButton_Click" Visibility="Visible"></Button>
         <DataGrid x:Name="DataFromDb" Height="300" Width="500" Margin="500,0,0,184"></DataGrid>
     </Grid>

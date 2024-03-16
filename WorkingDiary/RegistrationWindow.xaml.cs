@@ -42,6 +42,7 @@ namespace WorkingDiary
 
                 };
                 await Task.Run(() => WriteToBase(worker));
+                
                 this.DialogResult = true;
             }
             else 
@@ -56,7 +57,7 @@ namespace WorkingDiary
 
 
         }
-        async Task WriteToBase(Worker worker)
+       async Task WriteToBase(Worker worker)
         {
             using (WorkersDbContext db = new())
             {

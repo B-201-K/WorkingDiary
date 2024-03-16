@@ -18,6 +18,4 @@ public partial class Worker
     public string WorkerLogin { get; set; } = null!;
 
     public string WorkerPassword { get; set; } = null!;
-
-    
 }
