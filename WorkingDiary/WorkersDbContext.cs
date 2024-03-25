@@ -54,18 +54,16 @@ public partial class WorkersDbContext : DbContext
 
         modelBuilder.Entity<WorkerTask>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("worker_tasks");
+            entity.HasKey(e => e.TaskId).HasName("worker_tasks_pkey");
 
+            entity.ToTable("worker_tasks");
+
+            entity.Property(e => e.TaskId).HasColumnName("task_id");
             entity.Property(e => e.TaskCreateDate).HasColumnName("task_create_date");
             entity.Property(e => e.TaskDescription)
                 .HasMaxLength(500)
                 .HasColumnName("task_description");
             entity.Property(e => e.TaskEndDate).HasColumnName("task_end_date");
-            entity.Property(e => e.TaskId)
-                .HasDefaultValueSql("nextval('tasks_task_id_seq'::regclass)")
-                .HasColumnName("task_id");
             entity.Property(e => e.TaskName)
                 .HasMaxLength(50)
                 .HasColumnName("task_name");

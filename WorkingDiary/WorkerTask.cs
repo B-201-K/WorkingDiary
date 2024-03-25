@@ -11,9 +11,9 @@ public partial class WorkerTask
 
     public string? TaskDescription { get; set; }
 
-    public string TaskOwnerName { get; set; } = null!;
+    public string? TaskOwnerName { get; set; }
 
-    public string TaskOwnerSurname { get; set; } = null!;
+    public string? TaskOwnerSurname { get; set; }
 
     public DateOnly? TaskCreateDate { get; set; }
 
