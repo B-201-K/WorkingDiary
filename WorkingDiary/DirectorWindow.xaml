@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkingDiary"
         mc:Ignorable="d"
-        Title="DirectorWindow" Height="450" Width="800">
+        Title="DirectorWindow" Height="500" Width="1000">
     <Grid>
-        
+
+        <Label Name="UsernameLabel" Content="Username" Height="30" Width="150" Margin="20 10 830 410"></Label>
+        <Label Name="TestLabel" Content="test" Width="150" Height="30" Margin="250, 200, 550, 250 "/>
+        <Button x:Name="ExitButton" Content="Выход" Height="30" Width="100" Margin="890,444,10,10" Click="ExitButton_Click" ></Button>
+        <Button x:Name="AddTaskButton" Content="Добавить задачу" Height="30" Width="100" Margin="480,305,380,119" Click="AddTaskButton_Click" ></Button>
+        <Button x:Name="DeleteTaskButton" Content="Удалить задачу" Height="30" Width="100" Margin="617,305,283,119" Click="DeleteTaskButton_Click" ></Button>
+        <Button x:Name="ShowAllTasksButton" Content="Показать все задачи" Height="30" Width="120" Margin="734,305,146,119" Click="ShowAllTasksButton_Click" ></Button>
+       
+        <Button x:Name="ChangeTaskButton" Content="Изменить задачу" Height="30" Width="120" Margin="870,305,10,119" Click="ChangeTaskButton_Click" Visibility="Visible"></Button>
+        <Button x:Name="ChooseWorkerButton" Content="Выбрать работника" Height="30" Width="120" Margin="480,350,360,70" Click="ChooseWorkerButton_Click" Visibility="Visible"></Button>
+        <Button x:Name="DropWorkerButton" Content="Сбросить работника" Height="30" Width="120" Margin="640,350,240,70" Click="DropWorkerButton_Click" Visibility="Visible"></Button>
+      
+            
+                <DataGrid x:Name="DataFromDb" Height="300" Width="500" Margin="500,0,0,184" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding TaskId}"/>
+                <DataGridTextColumn Header="TaskName" Binding="{Binding TaskName}"/>
+                <DataGridTextColumn Header="TaskDescription" Binding="{Binding TaskDescription}"/>
+                <DataGridTextColumn Header="TaskOwnerName" Binding="{Binding TaskOwnerName}"/>
+                <DataGridTextColumn Header="TaskOwnerSurname" Binding="{Binding TaskOwnerSurname}"/>
+                <DataGridTextColumn Header="TaskCreateDate" Binding="{Binding TaskCreateDate}"/>
+                <DataGridTextColumn Header="TaskEndDate" Binding="{Binding TaskEndDate}"/>
+                <DataGridTextColumn Header="TaskStatus" Binding="{Binding TaskStatus}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

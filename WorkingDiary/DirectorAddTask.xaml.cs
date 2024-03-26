@@ -15,36 +15,33 @@ using System.Windows.Shapes;
 namespace WorkingDiary
 {
     /// <summary>
-    /// Логика взаимодействия для ChangeTaskWindow.xaml
+    /// Логика взаимодействия для DirectorAddTask.xaml
     /// </summary>
-    public partial class ChangeTaskWindow : Window
+    public partial class DirectorAddTask : Window
     {
-        internal long Id { get; set; }
-        public ChangeTaskWindow()
+
+        public DirectorAddTask()
         {
             InitializeComponent();
             List<string> statuses = new() { "Создана", "В работе", "Приостановлена", "Выполнена" };
             TaskStatusComboBox.ItemsSource = statuses;
         }
 
-
-
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
-
             using (WorkersDbContext db = new())
             {
-                WorkerTask taskForChange = db.WorkerTasks.Find(Id);
-                taskForChange.TaskName = TaskNameTextBox.Text;
-                taskForChange.TaskDescription = TaskDescTextBox.Text;
-                taskForChange.TaskOwnerName = OwnerNameTextBox.Text;
-                taskForChange.TaskOwnerSurname = OwnerSurnameTextBox.Text;
-
-
-                taskForChange.TaskStatus = TaskStatusComboBox.Text;
+                WorkerTask addedTask = new();
+                addedTask.TaskName = TaskNameTextBox.Text;
+                addedTask.TaskDescription = TaskDescTextBox.Text;
+                addedTask.TaskOwnerName = OwnerNameTextBox.Text;
+                addedTask.TaskOwnerSurname = OwnerSurnameTextBox.Text;
+                addedTask.TaskStatus = TaskStatusComboBox.Text;
+                db.Add(addedTask);
                 db.SaveChanges();
             }
-            DialogResult = true;
+            MessageBox.Show("Задача успешно создана");
+            this.Close();
         }
     }
 }

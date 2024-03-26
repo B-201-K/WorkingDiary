@@ -20,6 +20,7 @@ namespace WorkingDiary
     /// </summary>
     public partial class StartupWindow : Window
     {
+        Worker checkWorker { get; set; }
         public StartupWindow()
         {
             InitializeComponent();
@@ -34,16 +35,35 @@ namespace WorkingDiary
 
             if (logInWindow.ShowDialog() == true)
             {
+               
                 int id = GetWorkerId(logInWindow.Login, logInWindow.Password);
+                using (WorkersDbContext db = new())
+                {
+                    checkWorker = db.Workers.Find(id);
+                    if (checkWorker.WorkerDepartment.Equals("Director")) 
+                    {
+                        DirectorWindow directorWindow = new();
 
-                logInWindow.Dispose();
+                        logInWindow.Dispose();
+                        directorWindow.Director = checkWorker;
+                        directorWindow.UsernameLabel.Content = directorWindow.Director.WorkerName;
+                        directorWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MainWindow mainWindow = new();
+                        mainWindow.CurrentWorker = GetWorker(id);
+                        mainWindow.UsernameLabel.Content = mainWindow.CurrentWorker.WorkerName;
+
+                        mainWindow.Show();
+                        this.Close();
+                    }
+                }
+             
+                
               
-                MainWindow mainWindow = new();
-                mainWindow.CurrentWorker = GetWorker(id);
-                mainWindow.UsernameLabel.Content = mainWindow.CurrentWorker.WorkerName;
-
-                mainWindow.Show();
-                this.Close();
+               
 
             }
         }
