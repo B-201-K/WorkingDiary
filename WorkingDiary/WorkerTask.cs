@@ -15,9 +15,9 @@ public partial class WorkerTask
 
     public string? TaskOwnerSurname { get; set; }
 
-    public DateOnly? TaskCreateDate { get; set; }
+    public DateTime? TaskCreateDate { get; set; }
 
-    public DateOnly? TaskEndDate { get; set; }
+    public DateTime? TaskEndDate { get; set; }
 
     public string? TaskStatus { get; set; }
 }

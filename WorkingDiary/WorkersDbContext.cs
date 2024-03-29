@@ -21,7 +21,7 @@ public partial class WorkersDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost; Port=5432; Database=WorkersDB; username=postgres; Password=14863");
+        => optionsBuilder.UseSqlServer("Server=.\\cs10dotnet6;Database=WorkersDb; Trusted_Connection=true; TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -31,24 +31,32 @@ public partial class WorkersDbContext : DbContext
 
             entity.ToTable("worker");
 
-            entity.Property(e => e.WorkerId).HasColumnName("worker_id");
+            entity.Property(e => e.WorkerId)
+                .ValueGeneratedNever()
+                .HasColumnName("worker_id");
             entity.Property(e => e.WorkerDepartment)
                 .HasMaxLength(20)
+                .IsUnicode(false)
                 .HasColumnName("worker_department");
             entity.Property(e => e.WorkerLastname)
                 .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("worker_lastname");
             entity.Property(e => e.WorkerLogin)
                 .HasMaxLength(30)
+                .IsUnicode(false)
                 .HasColumnName("worker_login");
             entity.Property(e => e.WorkerName)
                 .HasMaxLength(30)
+                .IsUnicode(false)
                 .HasColumnName("worker_name");
             entity.Property(e => e.WorkerPassword)
                 .HasMaxLength(30)
+                .IsUnicode(false)
                 .HasColumnName("worker_password");
             entity.Property(e => e.WorkerSurname)
                 .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("worker_surname");
         });
 
@@ -58,23 +66,34 @@ public partial class WorkersDbContext : DbContext
 
             entity.ToTable("worker_tasks");
 
-            entity.Property(e => e.TaskId).HasColumnName("task_id");
-            entity.Property(e => e.TaskCreateDate).HasColumnName("task_create_date");
+            entity.Property(e => e.TaskId)
+                .ValueGeneratedNever()
+                .HasColumnName("task_id");
+            entity.Property(e => e.TaskCreateDate)
+                .HasColumnType("date")
+                .HasColumnName("task_create_date");
             entity.Property(e => e.TaskDescription)
                 .HasMaxLength(500)
+                .IsUnicode(false)
                 .HasColumnName("task_description");
-            entity.Property(e => e.TaskEndDate).HasColumnName("task_end_date");
+            entity.Property(e => e.TaskEndDate)
+                .HasColumnType("date")
+                .HasColumnName("task_end_date");
             entity.Property(e => e.TaskName)
                 .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("task_name");
             entity.Property(e => e.TaskOwnerName)
                 .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("task_owner_name");
             entity.Property(e => e.TaskOwnerSurname)
                 .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("task_owner_surname");
             entity.Property(e => e.TaskStatus)
                 .HasMaxLength(20)
+                .IsUnicode(false)
                 .HasColumnName("task_status");
         });
 
