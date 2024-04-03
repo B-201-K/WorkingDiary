@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local ="clr-namespace:WorkingDiary"
         mc:Ignorable="d"
-        Height="500" Width="1000">
+        Height="550" Width="1060">
     <Grid>
 
         <Label Name="UsernameLabel" Content="Username" Height="30" Width="150" Margin="20 10 830 410"></Label>
@@ -14,7 +14,7 @@
         <Button x:Name="DeleteTaskButton" Content="Удалить задачу" Height="30" Width="100" Margin="617,305,283,119" Click="DeleteTaskButton_Click" ></Button>
         <Button x:Name="ShowAllTasksButton" Content="Показать все задачи" Height="30" Width="120" Margin="734,305,146,119" Click="ShowAllTasksButton_Click" ></Button>
         <Button x:Name="ChangeTaskButton" Content="Изменить задачу" Height="30" Width="120" Margin="870,305,10,119" Click="ChangeTaskButton_Click" Visibility="Visible"></Button>
-        <DataGrid x:Name="DataFromDb" Height="300" Width="500" Margin="500,0,0,184" AutoGenerateColumns="False">
+        <DataGrid x:Name="DataFromDb" Height="300" Width="620" Margin="415,0,5,184" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding TaskId}"/>
                 <DataGridTextColumn Header="TaskName" Binding="{Binding TaskName}"/>

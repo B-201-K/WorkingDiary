@@ -26,6 +26,7 @@ namespace WorkingDiary
         public DirectorWindow()
         {
             InitializeComponent();
+            
         }
 
         private void ChooseWorkerButton_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace WorkingDiary
             {
 
                 CurrentWorker = chooseWorkerWindow.ChosenWorker;
-                TestLabel.Content = CurrentWorker.WorkerName;
+
             }
         }
 
@@ -66,12 +67,24 @@ namespace WorkingDiary
 
         private void ShowAllTasksButton_Click(object sender, RoutedEventArgs e)
         {
-            using (WorkersDbContext workersDb = new())
+            if (CurrentWorker == null)
             {
-                
-                DataFromDb.ItemsSource = workersDb.WorkerTasks.Where(t => t.TaskOwnerName.Equals(CurrentWorker.WorkerName)).ToList();
+                using (WorkersDbContext db = new())
+                {
+                    DataFromDb.ItemsSource = db.WorkerTasks.Where(t => t.TaskOwnerName.Equals(Director.WorkerName)).ToList();
+                }
 
             }
+            else 
+            {
+                using (WorkersDbContext db = new())
+                {
+
+                    DataFromDb.ItemsSource = db.WorkerTasks.Where(t => t.TaskOwnerName.Equals(CurrentWorker.WorkerName)).ToList();
+
+                }
+            }
+           
         }
 
         private void DropWorkerButton_Click(object sender, RoutedEventArgs e)

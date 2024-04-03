@@ -19,7 +19,7 @@ namespace WorkingDiary
     /// </summary>
     public partial class ChangeTaskWindow : Window
     {
-        internal long Id { get; set; }
+        internal int Id { get; set; }
         public ChangeTaskWindow()
         {
             InitializeComponent();

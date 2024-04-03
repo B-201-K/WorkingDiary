@@ -21,7 +21,7 @@ public partial class WorkersDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\cs10dotnet6;Database=WorkersDb; Trusted_Connection=true; TrustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Server=.\\cs10dotnet6;Database=WorkersDb;Trusted_Connection=True; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -31,9 +31,7 @@ public partial class WorkersDbContext : DbContext
 
             entity.ToTable("worker");
 
-            entity.Property(e => e.WorkerId)
-                .ValueGeneratedNever()
-                .HasColumnName("worker_id");
+            entity.Property(e => e.WorkerId).HasColumnName("worker_id");
             entity.Property(e => e.WorkerDepartment)
                 .HasMaxLength(20)
                 .IsUnicode(false)
@@ -66,9 +64,7 @@ public partial class WorkersDbContext : DbContext
 
             entity.ToTable("worker_tasks");
 
-            entity.Property(e => e.TaskId)
-                .ValueGeneratedNever()
-                .HasColumnName("task_id");
+            entity.Property(e => e.TaskId).HasColumnName("task_id");
             entity.Property(e => e.TaskCreateDate)
                 .HasColumnType("date")
                 .HasColumnName("task_create_date");

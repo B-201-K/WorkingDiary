@@ -5,7 +5,7 @@ namespace WorkingDiary;
 
 public partial class Worker
 {
-    public long WorkerId { get; set; }
+    public int WorkerId { get; set; }
 
     public string WorkerName { get; set; } = null!;
 

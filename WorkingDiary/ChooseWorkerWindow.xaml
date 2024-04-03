@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkingDiary"
         mc:Ignorable="d"
-        Title="ChooseWorkerWindow" Height="250" Width="200">
+        Title="ChooseWorkerWindow" Height="260" Width="220">
     <Grid>
         <Label Name="ChooseWorkerTextLabel" Content="Выбрать работника" Height="30" Width="150" Margin="25,70,25,130"/>
 
         <ComboBox Name="WorkersListComboBox" Width="150" Height="30">
         </ComboBox>
-        <Button x:Name="ChooseWorkerButton" Content="Выбрать" Width="100" Height="30" Margin="50, 170, 50, 30" Click="ChooseWorkerButton_Click"/>
+        <Button x:Name="ChooseWorkerButton" Content="Выбрать" Width="100" Height="30" Margin="50, 170, 50, 20" Click="ChooseWorkerButton_Click"/>
     </Grid>
 </Window>

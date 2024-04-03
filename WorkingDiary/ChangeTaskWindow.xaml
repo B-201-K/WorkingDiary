@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkingDiary"
         mc:Ignorable="d"
-        Title="ChangeTaskWindow" Height="500" Width="400">
+        Title="ChangeTaskWindow" Height="600" Width="450">
     <Grid>
         <Button Width="120" Height="20" Name="SaveButton" Content="Сохранить" Margin="0,420,0,20" Click="SaveButton_Click"></Button>
         <TextBox Width="200" Height="30" Name="TaskNameTextBox" Margin="0,20,0,400" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
@@ -16,12 +16,12 @@
         <TextBox Width="200" Height="30" Name="DateEndTextBox" Margin="0,220,0,60" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
         <ComboBox x:Name="TaskStatusComboBox" Width="200" Height="30" Margin="0, 360, 0, 90">
         </ComboBox>
-        <Label Width="50" Height="30" Margin="40,5,200,430">Наименование задачи</Label>
-        <Label Width="60" Height="30" Margin="50,30,200,340">Описание задачи</Label>
-        <Label Width="60" Height="30" Margin="50,45,200,250">Имя исполнителя</Label>
-        <Label Width="60" Height="30" Margin="50,60,200,160">Фамилия исполнителя</Label>
-        <Label Width="60" Height="30" Margin="50,100,200,90">Дата создания</Label>
-        <Label Width="60" Height="30" Margin="50,190,200,70">Дата окончания</Label>
+        <Label Width="140" Height="30" Margin="110,5,180,430">Наименование задачи</Label>
+        <Label Width="110" Height="30" Margin="100,30,200,340">Описание задачи</Label>
+        <Label Width="110" Height="30" Margin="100,45,200,250">Имя исполнителя</Label>
+        <Label Width="140" Height="30" Margin="80,60,150,160">Фамилия исполнителя</Label>
+        <Label Width="100" Height="30" Margin="90,100,200,95">Дата создания</Label>
+        <Label Width="100" Height="30" Margin="90,190,200,70">Дата окончания</Label>
         <Label Width="60" Height="30" Margin="50, 330, 200, 105">Статус</Label>
 
     </Grid>

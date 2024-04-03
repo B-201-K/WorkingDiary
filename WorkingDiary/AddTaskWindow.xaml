@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkingDiary"
         mc:Ignorable="d"
-        Title="AddTaskWindow" Height="250" Width="400">
+        Title="AddTaskWindow" Height="300" Width="420">
     <Grid>
         <Button Width="120" Height="20" Name="SaveButton" Content="Сохранить" Margin="0,180,0,10" Click="SaveButton_Click"></Button>
         <TextBox Width="200" Height="30" Name="TaskNameTextBox" Margin="5,25,190,170" BorderThickness="2" BorderBrush="Black" FontSize="20"></TextBox>
